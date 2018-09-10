@@ -16,11 +16,11 @@ var toggleClass = function(element, className) {
 
 var save = function(array) {
     var s = JSON.stringify(array)
-    localStorage.todos = s
+    localStorage.content = s
 }
 
 var load = function() {
-    var s = localStorage.todos
+    var s = localStorage.content
     return JSON.parse(s)
 }
 
@@ -55,6 +55,21 @@ var appendHtml = function(element, position='beforeend', html) {
 var bindEvent = function(element, event, callback) {
     element.addEventListener(event, callback)
 }
+
+// 用于测试
+var ensure = function(condition, message) {
+    if (!condition) {
+        console.log(message)
+    }
+}
+
+// 用于测试是否相等
+var ensureEqual = function(a, b, message) {
+    if (a != b) {
+        console.log(message, a, b)
+    }
+}
+
 
 
 
