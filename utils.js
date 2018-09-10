@@ -70,7 +70,9 @@ var ensureEqual = function(a, b, message) {
     }
 }
 
-
+var testItem = function() {
+    // 调用 ensure
+}
 
 
 
