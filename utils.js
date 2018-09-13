@@ -74,5 +74,22 @@ var testItem = function() {
     // 调用 ensure
 }
 
+// 批量绑定事件
+var btns = document.querySelectorAll('.radio-button')
+for (var i = 0; i < btns.length; i++) {
+    var b = btns[i]
+    b.addEventListener('click', function(event) {
+        var self = event.target
+        clearActive()
+        self.classList.add('active')
+    })
+}
 
+//先删除现有的，再添加新的
+var clearActive = function() {
+    var s = document.querySelector('.active')
+    if (s != null) {
+        s.classList.remove('active')
+    }
+}
 
