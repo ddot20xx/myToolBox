@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+div.ddot-banner {
+    border-bottom: 2px solid #007765;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    background-color: #fff;
+    z-index: 100;
+    box-sizing: border-box;
+}
+div.inner {
+    max-width: 1160px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+div.main {
+    margin-top: 50px;
+
+}
+header {
+    height: 517px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+div.video-wrapper {
+    background-image:url(http://www.piedpiper.com/app/themes/pied-piper/dist/images/Video_1.jpg );
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.bg-video {
+    min-width: 100%;
+}
+section>div {
+    position: relative;
+    width: 100%;
+}
+div.section1 {
+    text-align: center;
+    background-color: #eee;
+    padding-top: 82px;
+    padding-bottom: 65px;
+}
+h3 {
+    text-align: center;
+    font-size: 46px;
+    letter-spacing: -0.7px;
+}
+h1, h2, h3 {
+    color: #007765;
+    font-family: BrandonGrotesque-Medium;
+    margin: 0;
+}
+.section1 .icons {
+    display: inline-block;
+    width: 100%;
+    margin-top: 64px;
+}
+div.icon {
+    float: left;
+    width: 33.33%;
+}
+h4 {
+    color: #007765;
+    font-family: GothamNarrow-Medium;
+    font-size: 30px;
+    letter-spacing: -.3px;
+    margin: 0;
+}
+.section1 .icons img {
+    margin: 34px 0 30px;
+    max-width: 140px;
+}
+.section1 .icons p {
+    white-space: pre;
+    margin-bottom: 0;
+}
+p {
+    font-size: 24px;
+    letter-spacing: -0.3px;
+    color: #565656;
+}
+div.section2 {
+    text-align: center;
+    padding-top: 76px;
+    padding-bottom: 95px;
+}
+
+.section2 h2 {
+    margin-bottom: 74px;
+}
+h2 {
+    font-size: 66px;
+    font-family: Arial;
+}
