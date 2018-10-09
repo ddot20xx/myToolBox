@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="index.css">
-    <title>ddot.cc</title>
+    <title>主页 -- ddot.cc</title>
 </head>
 <body>
     <div class="ddot-banner">
         <div class="inner">
             <div class="content">
-
+                <div class="logo-wrapper">
+                    <a href="/">
+                        <img src="logo.png" id="logo">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -22,11 +27,11 @@
                 <h1>ddot.cc Is Here</h1>
                 <p class="sub">读书、学习、迎接美好的每一天 . . .</p>
             </div>
-            <div class="logo-wrapper">
+            <!-- <div class="nav-logo-wrapper">
                 <a href="/">
-                    <img src="logo.png" id="logo">
+                    <img src="old-logo.png" id="nav-logo">
                 </a>
-            </div>
+            </div> -->
             <div class="header-container">
                 <div class="navbar-links">
                     <a href="" class="navbar-link">博客</a>
@@ -45,7 +50,7 @@
                         <h3>项目 Demo</h3>
                         <div class="icons">
                             <div class="icon">
-                                <h4>个人博客</h4>
+                                <h4>博 客</h4>
                                 <img src="http://www.piedpiper.com/app/themes/pied-piper/dist/images/icon-identity.png">
                                 <p>技术笔记
 学习记录、生活随记</p>
@@ -84,9 +89,23 @@
                             </div>
                         </div>
                         <div class="tab-content">
-                            <div class="content1"></div>
-                            <div class="content2"></div>
-                            <div class="content3"></div>
+                            <div class="tab-content-item">
+                                <p>做这个博客是为了巩固 web 开发的相关知识。后台、前端都从零开始。</p>
+                                <p>所以先是自己写了个 web 框架，基本功能完成后，迁移到了 flask。flask 简洁，灵活。</p>
+                                <p>用户管理、session / Cookie、csrf 防护、ajax、json 接口等从头做起。</p>
+                                <p>部署到服务器时数据库选择了mongoDB。</p>
+                                <p>接下来就作为学习笔记本吧。</p>
+                            </div>
+                            <div class="tab-content-item">
+                                <p>待办事项是最简单的一个 web 应用，涵盖的知识点又基本覆盖了 web 开发的所有相关知识，所以搞懂了待办事项，基本就可以应对基础的 web 开发了。</p>
+                                <p>待办事项最初用 Python 写后端接口，前端静态页面显示；后来使用原生 javascript 和 chrome 的 localstorage 重写了一遍；接着又用 jQuery 写了一遍； 最后接口又改成了 ajax 。全部练习了一遍。</p>
+                                <p>下一步的计划是改写待办事项，页面和功能参照 google keep，用网页实现一个简洁版的 google keep。</p>
+                            </div>
+                            <div class="tab-content-item">
+                                <p>在线 Markdown 编辑器，目前做好的主要功能有实时预览，同步预览，基本的样式，接下来计划加上代码高亮的功能。</p>
+                                <p>编辑器模块可以重复使用，目前博客的文章编辑和修改就是用的这个编辑器模型。</p>
+                                <p>最终要把这个模块做成一个功能完善的笔记本应用。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +116,14 @@
                 <div class="inner">
                     <div class="content">
                         <h3>关于我</h3>
-
+                        <div class="aboutme">
+                            <p class="section3-left">希望自己有一天能够做到：当遇到问题，会立刻由点及面快速搜罗合理的解决方案；当遇到新技术，会发散联想已有的知识体系来对比学习，把它编织进自己的知识网络，最终提炼，磨合，做到融汇贯通，自成体系。</p>
+                            <div class="section3-right">
+                                <p>现居住地: 河南省 郑州市</p>
+                                <p>E-MAIL: ddot20xx@outlook.com</p>
+                                <p>个人网站: www.ddot.cc</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,5 +150,19 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            var content = $('.tab-content-item')
+            content.hide()
+            $(content[0]).show()
+            var tab = $('.tab')
+            tab.on('click', function() {
+                content.hide()
+                var i = $(this).index()
+                $(content[i]).show()
+            })
+        })
+    </script>
 </body>
 </html>

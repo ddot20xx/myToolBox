@@ -3,7 +3,7 @@
     margin: 0;
 }
 div.ddot-banner {
-    border-bottom: 2px solid #007765;
+    border-bottom: 2px solid #E95C5E;
     position: fixed;
     left: 0;
     top: 0;
@@ -62,13 +62,14 @@ div.video-wrapper {
 }
 .logo-wrapper {
     position: absolute;
-    top: 25px;
-    left: 120px;
+    top: 3px;
+    left: 30px;
     margin: 0;
     z-index: 3;
 }
+
 #logo {
-    max-height: 50px;
+    max-height: 100px;
     display: block;
 }
 .navbar-links {
@@ -102,7 +103,8 @@ h3 {
     letter-spacing: -0.7px;
 }
 h1, h2, h3 {
-    color: #007765;
+    /* color: #007765; */
+    color: #E95C5E;
     font-family: BrandonGrotesque-Medium;
     margin: 0;
 }
@@ -116,7 +118,8 @@ div.icon {
     width: 33.33%;
 }
 h4 {
-    color: #007765;
+    /* color: #007765; */
+    color: #E95C5E;
     font-family: GothamNarrow-Medium;
     font-size: 30px;
     letter-spacing: -.3px;
@@ -164,8 +167,12 @@ p {
 .section2 p {
     letter-spacing: -1px;
 }
-.section2[current-tab="1"] [target-content="1"] p, .section2[current-tab="2"] [target-content="2"] p, .section2[current-tab="3"] [target-content="3"] p {
-    color: #007765;
+.tab-content p {
+    font-size: 18px;
+    text-align: left;
+    padding: 0 20%;
+    line-height: 1.6em;
+    margin-bottom: 1em;
 }
 .footer {
     background-color: #3d3d3d;
@@ -183,6 +190,24 @@ p {
     border-radius: 50%;
     line-height: 48px;
     margin: 0 20px;
+}
+.aboutme {
+    margin-top: 35px;
+    width: 90%;
+}
+.section3-left, .section3-right {
+    display: inline-block;
+
+}
+.aboutme p {
+    font-size: 18px;
+    text-align: left;
+    vertical-align: top;
+    margin-bottom: 0.5em;
+}
+.section3-left {
+    width: 48%;
+    margin-right: 20px;
 }
 .footer-icon {
     width: 48px;
