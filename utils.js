@@ -93,3 +93,32 @@ var clearActive = function() {
     }
 }
 
+// 2. 同步滚动
+// 同步滚动功能实际上非常简单，只要监听 Editor 和 Viewer 的滚动事件，每次一个滚动的时候改变另一个的滚动轴，使得它们的百分比一样。
+var $divs = $('textarea#editor, div#preview');
+var sync = function(e){
+   var $other = $divs.not(this).off('scroll')
+   other = $other.get(0);
+   var percentage = this.scrollTop / (this.scrollHeight - this.offsetHeight);
+   other.scrollTop = percentage * (other.scrollHeight - other.offsetHeight);
+   setTimeout( function(){
+       $other.on('scroll', sync );
+   }, 200);
+}
+$divs.on('scroll', sync);
+
+
+
+// 同步滚动二
+var divs = $('#editor, #preview')
+var sync = function(e){
+    var others = divs.not(this).off('scroll')
+    var other = others[0]
+    var p = this.scrollHeight - this.scrollTop
+    other.scrollTop = other.scrollHeight - p
+    setTimeout( function() {
+        others.on('scroll', sync )
+    }, 200)
+}
+divs.on('scroll', sync)
+})
