@@ -242,8 +242,6 @@ directives: {
 
 在 main.js 中全局配置： 参见官网文档
 
-跨域在 webpack 中配置。
-
 **拦截器**： 在发送请求前和接收数据前做判断，比如发送数据前判断数据是否有问题，接收数据前先判断数据是否符合预期，符合再接收。
 
 拦截器只有两个。在 main.js 中：
@@ -271,4 +269,128 @@ Axios.interceptors.response.use(function (response) {
     return Promise.reject(error)
 })
 ```
+
+22. 在 webpack 中配置跨域
+
+`build/webpack.dev.conf.js`中:
+
+proxy: config.dev.proxyTable 
+
+第一步： 
+`config/index.js`中:
+proxyTable: {
+    '/douban_api': {
+        target: 'http://api.douban.com',
+        pathRewrite: {
+            '^/douban': ''
+        },
+        changeOrigin: true
+    }
+}
+
+第二步：
+main.js 中
+
+```
+Vue.prototype.HOST = '/douban_api'
+```
+
+main.js 中配置好后，读取 api 地址时用`this.HOST` 可以得到 douban_api 地址。 
+
+第三步： 使用 
+
+```
+var url = this.HOST + '/v2/movie/top250'
+this.$axios({
+    method: 'get',
+    url: url
+})
+.then(res => {
+    console.log(res.data)
+})
+.catch(error => {
+    console.log(error)
+})
+```
+
+23. 路由基础
+
+安装和使用：
+
+`cnpm install vue-router --save`
+
+main.js 中： 
+
+```
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+// 创建路由
+const router = new VueRouter({
+    routes: [{
+        path: '/',
+        name: 'HelloWorld',
+        component: HelloWorld
+    }] 
+})
+
+// 显示 在 App.vue 中
+1. 先将 router 注入 App 实例中
+2. <router-view />
+```
+
+24. 路由跳转
+
+1 将 main.js 中路由部分提取出来，src 文件夹中新建 router/index.js，
+
+```
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import HelloWorld from '../components/HelloWorld'
+// 可写为 import HelloWorld from '@/components/HelloWorld'   @代表根目录
+
+Vue.use(VueRouter)
+
+export default new VueRouter({
+    routes: [{
+        path: '/',
+        name: 'HelloWorld',
+        component: HelloWorld
+    }] 
+})
+
+```
+
+2 main.js 中引入 `import router from './router'`
+
+路由跳转：
+
+在 `router/index.js` 中定义好路由后，在 App.vue 中使用 `router-link tag="li" to="/hello">hello</router-link>` 来实现路由的跳转。
+
+> 类似 Element UI 中的标签页效果。
+
+动态路由：在路由中传递参数。 `/：id ==> this.$root.params.id `
+
+25. 路由嵌套：
+
+配置路由时使用：
+children: [
+    {
+        path: 'name',
+        component: vue,
+    }
+]
+
+在需要显示的组件中使用 `<router-view />`
+
+26. 编程式导航
+
+this.$router.push()
+
+this.$router.replace()
+
+this.$router.go()
+
+
+
 
