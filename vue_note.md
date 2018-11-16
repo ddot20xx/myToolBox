@@ -185,12 +185,12 @@ directives: {
 同上面的局部指令, 在组件中添加 filters:{} 部分。
 
 20. Axios: 替代 vue-resource。
-    
+
     Axios 基于 promise 的 HTTP 库
 
     安装: cnpm install axios
 
-    使用: 
+    使用:
     ```
     import Axios from 'axios'
 
@@ -221,7 +221,7 @@ directives: {
     }
 
     // POST 请求
-    
+
     import qs from 'qs' // qs 解决参数格式转码问题。 ?name=lala&age=20 => { name:lala, age:20 }
 
     mounted () {
@@ -258,12 +258,12 @@ Axios .interceptors.request.use(function (config) {
 
 // 响应拦截器
 Axios.interceptors.response.use(function (response) {
-    // console.log(response) 
+    // console.log(response)
     if (!response.data) {
         return {
             msg: '数据错误'
         }
-    } 
+    }
     return response
 }, function (error) {
     return Promise.reject(error)
@@ -274,9 +274,9 @@ Axios.interceptors.response.use(function (response) {
 
 `build/webpack.dev.conf.js`中:
 
-proxy: config.dev.proxyTable 
+proxy: config.dev.proxyTable
 
-第一步： 
+第一步：
 `config/index.js`中:
 proxyTable: {
     '/douban_api': {
@@ -295,9 +295,9 @@ main.js 中
 Vue.prototype.HOST = '/douban_api'
 ```
 
-main.js 中配置好后，读取 api 地址时用`this.HOST` 可以得到 douban_api 地址。 
+main.js 中配置好后，读取 api 地址时用`this.HOST` 可以得到 douban_api 地址。
 
-第三步： 使用 
+第三步： 使用
 
 ```
 var url = this.HOST + '/v2/movie/top250'
@@ -319,7 +319,7 @@ this.$axios({
 
 `cnpm install vue-router --save`
 
-main.js 中： 
+main.js 中：
 
 ```
 import VueRouter from 'vue-router'
@@ -331,7 +331,7 @@ const router = new VueRouter({
         path: '/',
         name: 'HelloWorld',
         component: HelloWorld
-    }] 
+    }]
 })
 
 // 显示 在 App.vue 中
@@ -356,7 +356,7 @@ export default new VueRouter({
         path: '/',
         name: 'HelloWorld',
         component: HelloWorld
-    }] 
+    }]
 })
 
 ```
@@ -391,6 +391,37 @@ this.$router.replace()
 
 this.$router.go()
 
+27. 命名路由，可实现参数的真正传递。
 
+命名时： `<router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>`。这跟代码调用 router.push() 是一回事：`router.push({ name: 'user', params: { userId: 123 }})`，接收参数使用`this.$route.params.userId`。
 
+28. 重定向
 
+在routes的最外层定义：
+routes: [
+    {
+        path: '*',
+        component: NotFound  // 配置 404 页面
+    },
+    {
+        path: '/',
+        redirect: '/hello'  // 重定向目标路由
+    },
+    {
+        ...
+    }
+]
+
+29. 路由高亮。做标签页时，给选中的标签页显示样式。
+ .route-link-active {
+     color: green;
+ }
+
+ 或者在routes中配置：
+ ```
+ linkActiveClass: 'active',
+ ```
+
+ 然后在style中定义 .active 的样式即可。
+
+ 
