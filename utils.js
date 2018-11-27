@@ -144,3 +144,21 @@ btn.addEventListener('click', function() {
     this.innerHTML = '同意 (' + count + ')'
     cutdown(count)
 })
+
+// 复选框的全选和取消功能
+var cs = document.querySelectorAll('.checkbox')
+var checkall = document.querySelector('.checkAll')
+
+checkall.addEventListener('click', function() {
+    if (checkall.checked === true) {
+        for (var i = 0; i < cs.length; i++) {
+            var c = cs[i]
+            c.checked = true
+        }
+    } else {
+        for (var i = 0; i < cs.length; i++) {
+            var c = cs[i]
+            c.checked = false
+        }
+    }
+})
