@@ -247,7 +247,7 @@ directives: {
 拦截器只有两个。在 main.js 中：
 ```
 // 请求拦截器, 比如post请求中需要对参数进行处理，如果请求较多可以放在请求拦截器中处理
-Axios .interceptors.request.use(function (config) {
+Axios.interceptors.request.use(function (config) {
     if (config.method === 'post') {
         confog.data = qs.stringify(config.data)
     }
@@ -423,5 +423,3 @@ routes: [
  ```
 
  然后在style中定义 .active 的样式即可。
-
- 

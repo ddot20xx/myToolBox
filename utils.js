@@ -121,4 +121,26 @@ var sync = function(e){
     }, 200)
 }
 divs.on('scroll', sync)
+
+
+// 点击按钮开始倒计时，倒计时期间按钮无法被点击，结束后可以被点击
+var btn = document.querySelector('#btn1')        
+
+var cutdown = function(count) {
+    if (count === 0) {
+        btn.disabled = false
+    } else {
+        setTimeout(function() {
+            count -= 1
+            btn.innerHTML = '同意 (' + count + ')'
+            cutdown(count)
+        }, 1000)
+    }            
+}
+
+btn.addEventListener('click', function() {
+    this.disabled = true
+    let count = 6
+    this.innerHTML = '同意 (' + count + ')'
+    cutdown(count)
 })
