@@ -183,3 +183,11 @@ function getDuplicateInArray(array) {
     
     return result
 }
+
+// node.js 加密
+var hash_md5 = function(value) {
+    var crypto = require('crypto')
+    var md5 = crypto.createHash('md5')
+    var hash = md5.update(value).digest('hex')
+    return hash
+}
