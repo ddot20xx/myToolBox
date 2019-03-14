@@ -162,3 +162,24 @@ checkall.addEventListener('click', function() {
         }
     }
 })
+
+
+function getDuplicateInArray(array) {
+    var o = {};
+    var result = [];
+
+    array.forEach(function (item) {
+        if(!o[item]) {
+            o[item] = 0
+        }
+        o[item] += 1
+    })
+
+    for (var prop in o) {
+       if(o[prop] >= 2) {
+           result.push(prop)
+       }
+    }
+    
+    return result
+}
