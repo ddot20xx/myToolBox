@@ -191,3 +191,32 @@ var hash_md5 = function(value) {
     var hash = md5.update(value).digest('hex')
     return hash
 }
+
+
+// 处理 size 中的数组
+const flatArray2Object = function (item) {
+	const data = {};
+	item.forEach((value, index) => {
+		data[index.toString()] = value;
+	})
+	return data;
+}
+
+const normalize = function (item) {
+	const sizes = item.sizes;
+	Object.keys(sizes).forEach((key) => {
+		let value = sizes[key];
+		if (Array.isArray(value)) {
+			value = flatArray2Object(value);
+		}
+		sizes[key] = value;
+	});
+	item.sizes = sizes;
+	return item;
+};
+
+Object.keys(response).map((id) => {
+	response[id] = normalize(response[id]);
+});
+
+console.info(JSON.stringify(response, undefined, 2));
