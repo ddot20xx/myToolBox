@@ -18,3 +18,8 @@
     display: inline-block;
     margin-right: 20px;
 }
+
+/* 页面滚动时，背景不动 */
+body {
+    background: fixed;
+}
