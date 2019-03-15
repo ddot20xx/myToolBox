@@ -23,3 +23,17 @@
 body {
     background: fixed;
 }
+
+/* 图片水平居中 */
+<div>
+   <img src="arr.png">
+</div>
+
+/* 图片水平居中的 css 样式 */
+div {
+    text-align: center;
+}
+
+img {            
+    margin: 0 auto;            
+}
