@@ -1,0 +1,51 @@
+<h3>lx1 is here.</h3>
+<span *ngIf="showImg">
+  <img src="assets/images/circle.png" alt="">
+</span>
+
+<span *ngIf="!showImg">
+  <img src="assets/images/glide.png" alt="">
+</span>
+<img [src]="imgurl" alt="">
+<button (click)="switchimg()">switch img</button>
+<br>
+<ul [ngStyle]="{'list-style': 'none'}">
+  <li *ngFor="let item of list">
+    <span [ngClass]="{'red':false, 'yellow':true}">
+      {{ item.title }}
+    </span>
+  </li>
+</ul>
+
+<div>
+  <span>
+    <input [(ngModel)]="inputdata">
+  </span>
+  {{ inputdata }}
+  <button (click)="getData()">取值</button>
+</div>
+<div>
+  <label for="sex"><input type="radio" name="sex" value="male" [(ngModel)]="radiores">Male</label>
+  <label for="sex"><input type="radio" name="sex" value="female" [(ngModel)]="radiores">Female</label>
+  <button (click)="getradio()">取radio值</button>
+</div>
+<div>
+  <select name="city" id="" [(ngModel)]="city">
+    <option *ngFor="let city of city_list; let key = index" [value]="city">
+      {{ city }}</option>
+  </select>
+  <button (click)="getselect()">取select值</button>
+</div>
+<div>
+  <span *ngFor="let habit of habits; let key = index;">
+    <input type="checkbox" [(ngModel)]="habit.checked" value="habit" [id]="'habit' + key"><label
+      [for]="'habit' + key">{{ habit.title }}</label>
+  </span>
+  <button (click)="getChecked()">取得选中的值</button>
+  <button (click)="getAllChecked()">所有选择框的值</button>
+</div>
+
+<div>
+  <textarea name="article" id="" [(ngModel)]="article" cols="30" rows="10"></textarea>
+  <button (click)="gettextarea()">文本框的值</button>
+</div>
