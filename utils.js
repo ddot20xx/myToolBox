@@ -1,3 +1,14 @@
+// 格式化时间
+function formatTime(date) {
+    h = '' + date.getHours()
+    m = '' + date.getMinutes()
+    s = '' + date.getSeconds()
+    h = h.length > 1 ? h : '0' + h
+    m = m.length > 1 ? m : '0' + m
+    s = s.length > 1 ? s : '0' + s
+    return `${h}:${m}:${s}`
+}
+
 var log = function() {
     console.log.apply(console, arguments)
 }
